@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12.0-alpine
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env.dev
+
+  web:
+    build: .
+    command: sh -c "python /code/inegi_app/manage.py migrate && python /code/inegi_app/manage.py runserver 0.0.0.0:9001"
+    volumes:
+      - .:/code
+    ports:
+      - "9001:9001"
+    env_file:
+      - ./.env.dev
+    restart: on-failure
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
