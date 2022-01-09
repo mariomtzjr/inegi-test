@@ -23,10 +23,10 @@ Crear un servicio que proporcione la información de los negocios por localidade
 ### Endpoint
 
 Zappa  
-- <zappa_url>/entidades/listar/"<entidad_federativa>"/"<municipio>"/"<nombre_establecimiento>"/
+- <zappa_url>/entidades/listar/<entidad_federativa>/<numero_municipio>/<nombre_establecimiento>/
 
 Docker 
-- localhost:9001/entidades/listar/"<entidad_federativa>"/"<municipio>"/"<nombre_establecimiento>"/
+- localhost:9001/entidades/listar/<entidad_federativa>/<numero_municipio>/<nombre_establecimiento>/
 ```
 
 Donde:
